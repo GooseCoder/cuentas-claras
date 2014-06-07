@@ -1,0 +1,194 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Google Visualization API Sample</title>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1', {packages: ['corechart']});
+    function drawVisualization(gestion, type) {
+      var queryText = encodeURIComponent("SELECT Year, Austria, Bulgaria, Denmark, Greece FROM 18k8XNgsc5ktLP2EHMCpoKIwymsVlzVV-xVuceA");
+      google.visualization.drawChart({
+        "containerId": "visualization_div_"+type+"_"+gestion,
+        "dataSourceUrl": 'https://www.google.com/fusiontables/gvizdata?tq=',
+        //"query": "SELECT Year, Austria, Bulgaria, Denmark, Greece FROM 18k8XNgsc5ktLP2EHMCpoKIwymsVlzVV-xVuceA",
+        "query":"SELECT departamento, sum(TOTAL) FROM 1kqkM5h8a2mysPtWjomuya6IY04S9-xVoye4roMsk WHERE GESTION='"+gestion+"' AND TRANSFERENCIA='"+type+"' GROUP BY departamento",
+        "refreshInterval": 5,
+        "chartType": "PieChart",
+        "options": {
+          "title":"Transferencias del "+type+" gestion "+gestion+" por Departamento"
+        }
+      });
+    }
+    google.setOnLoadCallback(function (){
+      drawVisualization('2012', 'iehd');
+      drawVisualization('2013', 'iehd');
+      drawVisualization('2014', 'iehd');
+      drawVisualization('2012', 'idh');
+      drawVisualization('2013', 'idh');
+      drawVisualization('2014', 'idh');
+      drawVisualization('2012', 'dialogo');
+      drawVisualization('2013', 'dialogo');
+      drawVisualization('2014', 'dialogo');
+    });
+  </script>
+</head>
+<body>
+  <div class = "container">
+      <div class="narbar-header">
+        <a class="navbar-brand" href="#">CUENTAS CLARAS</a>
+
+      <ul class="nav nav-tabs">
+
+        <li class="active"><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Estadisticas <span class="caret"></span>
+        </a>
+    <ul class="dropdown-menu">
+      <li><a href="estadisticas.html">La Paz</a></li>
+      <li><a href="estadisticas.html">Santa Cruz</a></li>
+      <li><a href="estadisticas.html">Cochabamba</a></li>
+      <li><a href="estadisticas.html">Tarija</a></li>
+      <li><a href="estadisticas.html">Sucre</a></li>
+      <li><a href="estadisticas.html">Potosi</a></li>
+      <li><a href="estadisticas.html">Oruro</a></li>
+      <li><a href="estadisticas.html">Beni</a></li>
+      <li><a href="estadisticas.html">Pando</a></li>
+
+    </ul></li>
+
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+</div>
+
+<div class="jumbotron">
+  <h1>Cuentas Claras</h1>
+  <p><a class="btn btn-primary btn-lg" role="button">Mas</a></p>
+</div>
+  		<div class = "row">
+  			<div class="col-md-12"><h1>Objetivos</h1>
+  				Mostrar el flujo presupuestario del país, en ingresos y gastos.
+  			</div>
+  		</div>
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_dialogo_2012" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2012</h3>
+              <p>Transferencias Dialogo</p>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_dialogo_2013" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2013</h3>
+              <p>Transferencias Dialogo</p>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_dialogo_2014" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2014</h3>
+              <p>Transferencias Dialogo</p>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_iehd_2012" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2012</h3>
+              <p>Transferencias IEHD</p>
+              <p>
+                <a href="municipios.html" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_iehd_2013" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2013</h3>
+              <p>Transferencias IEHD</p>
+              <p>
+                <a href="municipios.html" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_iehd_2014" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2014</h3>
+              <p>Transferencias IEHD</p>
+              <p>
+                <a href="municipios.html" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  		<div class="row" style="margin-top: 10px;">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_idh_2012" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2012</h3>
+              <p>Transferencias IDH</p>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_idh_2013" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2013</h3>
+              <p>Transferencias IDH</p>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+         <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div id="visualization_div_idh_2014" style="width: 400px; height: 300px;"></div>
+            <div class="caption">
+              <h3>2014</h3>
+              <p>Transferencias IDH</p>
+              <p>
+                <a href="#" class="btn btn-primary" role="button">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  		</div>
+      <div id="chart_div"></div>
+</body>

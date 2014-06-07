@@ -1,0 +1,21 @@
+<template name='iehd2013'>
+  <script type="text/javascript">
+    google.load('visualization', '1', {packages: ['corechart']});
+    function drawVisualization() {
+      var queryText = encodeURIComponent("SELECT Year, Austria, Bulgaria, Denmark, Greece FROM 18k8XNgsc5ktLP2EHMCpoKIwymsVlzVV-xVuceA");
+      google.visualization.drawChart({
+        "containerId": "visualization_div_2013",
+        "dataSourceUrl": 'https://www.google.com/fusiontables/gvizdata?tq=',
+        //"query": "SELECT Year, Austria, Bulgaria, Denmark, Greece FROM 18k8XNgsc5ktLP2EHMCpoKIwymsVlzVV-xVuceA",
+        "query":"SELECT DEPARTAMENTO, TOTAL FROM 1o6u1fxKSiOU32HVXcKriqa-jx1xA6KUVEKPpsNpx WHERE GESTION='2013' AND TRANSFERENCIA='iehd'",
+        "refreshInterval": 5,
+        "chartType": "PieChart",
+        "options": {
+          "title":"Transferencias del IEHD gestion 2013 por Departamento"
+        }
+      });
+    }
+    google.setOnLoadCallback(drawVisualization);
+  </script>
+  <div id="visualization_div_2013" style="width: 800px; height: 600px;"></div>
+</template>
